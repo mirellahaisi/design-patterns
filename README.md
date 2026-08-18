@@ -31,7 +31,7 @@ Sim, bastante. A estrutura de impressão dos planetas acabou sendo praticamente 
 2. O que aconteceria se uma terceira classe tivesse que ser adicionada?
 
 O mesmo padrão se repetiria: eu criaria uma nova classe, copiando novamente essa estrutura comum e adaptando apenas as colunas e a formatação dos dados. Isso significa que qualquer decisão sobre a aparência da tabela — a largura da borda, o caractere usado, o comportamento do alinhamento, o tratamento de valores nulos — passaria a existir em três lugares diferentes, quando na verdade é a mesma regra sendo aplicada três vezes. Isso é um risco real: se no futuro for necessário ajustar algo nessa parte comum, será preciso lembrar de alterar os três printers da mesma forma, e basta esquecer um deles para as tabelas começarem a se comportar de maneira inconsistente entre si, sem que isso fique evidente de imediato.
-Faria mais sentido que essa parte comum existisse em um único lugar, e que cada nova classe de impressão só precisasse informar o que é particular a ela — as colunas e como formatar seus dados —, sem precisar recriar toda a lógica de montagem da tabela a cada nova necessidade.
+Faria mais sentido que essa parte comum existisse em um único lugar, e que cada nova classe de impressão só precisasse informar o que é particular a ela (as colunas e como formatar seus dados), sem precisar recriar toda a lógica de montagem da tabela a cada nova necessidade.
 
 
 ---
