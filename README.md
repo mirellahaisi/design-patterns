@@ -25,7 +25,14 @@ Quanto aos dados:
 Ao final da implementação reflita:
 
 1. Sua solução ficou com muito código duplicado?
+   
+Sim, bastante. A estrutura de impressão dos planetas acabou sendo praticamente uma cópia da estrutura usada para os usuários: a montagem da borda, o cabeçalho, o tratamento de lista vazia ou nula, o percurso pelos itens e o bloco de alinhamento à direita são, em essência, os mesmos em ambas as classes. A única parte realmente nova foi a definição de quais colunas existem e como cada dado do planeta deve ser formatado. Ou seja, a "moldura" da tabela se repetiu quase por completo, e só o conteúdo mudou.
+
 2. O que aconteceria se uma terceira classe tivesse que ser adicionada?
+
+O mesmo padrão se repetiria: eu criaria uma nova classe, copiando novamente essa estrutura comum e adaptando apenas as colunas e a formatação dos dados. Isso significa que qualquer decisão sobre a aparência da tabela — a largura da borda, o caractere usado, o comportamento do alinhamento, o tratamento de valores nulos — passaria a existir em três lugares diferentes, quando na verdade é a mesma regra sendo aplicada três vezes. Isso é um risco real: se no futuro for necessário ajustar algo nessa parte comum, será preciso lembrar de alterar os três printers da mesma forma, e basta esquecer um deles para as tabelas começarem a se comportar de maneira inconsistente entre si, sem que isso fique evidente de imediato.
+Faria mais sentido que essa parte comum existisse em um único lugar, e que cada nova classe de impressão só precisasse informar o que é particular a ela — as colunas e como formatar seus dados —, sem precisar recriar toda a lógica de montagem da tabela a cada nova necessidade.
+
 
 ---
 
